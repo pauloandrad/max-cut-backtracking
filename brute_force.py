@@ -1,3 +1,5 @@
+import sys
+
 def populate_node_groups_recursive(nodes_list, nodes, col, max_col):
     if col == max_col:
         nodes_list.append(nodes.copy())
@@ -49,7 +51,10 @@ def calculate_scores(edges, node_list):
 
 
 if __name__ == '__main__':
-    max_graph = 4
+    if len(sys.argv) > 1:
+        max_graph = int(sys.argv[1])
+    else:
+        max_graph = 10
 
     groups_list = initialize_node_groups(max_graph)
     all_edges = initialize_edges(max_graph)

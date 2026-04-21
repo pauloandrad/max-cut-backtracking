@@ -1,3 +1,5 @@
+import sys
+
 def is_partial_solution(top_score, edges, nodes, col, max_col):
     score = calculate_scores(edges, nodes, col)
     possible_points = max_col - col
@@ -67,7 +69,10 @@ def calculate_scores(edges, nodes, col):
 
 
 if __name__ == '__main__':
-    max_graph = 200
+    if len(sys.argv) > 1:
+        max_graph = int(sys.argv[1])
+    else:
+        max_graph = 10
 
     all_edges = initialize_edges(max_graph)
     solution_nodes = initialize_node_groups(max_graph, all_edges)
